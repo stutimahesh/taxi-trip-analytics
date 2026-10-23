@@ -10,6 +10,17 @@ A local Apache Spark application for analyzing NYC yellow taxi trips from Januar
 
 Spark 3.5.3 is configured in `pom.xml`. Use JDK 17; the Maven launcher passes Spark's required JVM module options to the forked Java process.
 
+## Run with Docker
+
+Only Docker is required. The image compiles the app, then runs the Spark analysis and chart generation in one step:
+
+```powershell
+docker build -t taxi-trip-analytics .
+docker run --rm -v "${PWD}\out:/app/out" taxi-trip-analytics
+```
+
+Results, charts, and `out/index.html` appear in the local `out/` folder. To give Spark more memory, add `-e JAVA_OPTS=-Xmx6g` to `docker run`.
+
 ## Run the analysis
 
 From this directory, run:

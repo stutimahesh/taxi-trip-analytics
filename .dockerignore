@@ -1,0 +1,6 @@
+.git
+.venv
+target
+out
+__pycache__
+*.class
